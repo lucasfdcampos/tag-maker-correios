@@ -34,6 +34,11 @@ function CreateTag() {
             <div className="input-block">
               <label htmlFor="complemento">Complemento</label>
               <input id="complemento" />
+            </div>  
+
+            <div className="input-block">
+              <label htmlFor="bairro">Bairro</label>
+              <input id="bairro" />
             </div>            
 
             <div className="input-block">
