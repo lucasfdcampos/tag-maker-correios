@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import FormTag from './pages/FormTag';
-import Label from './pages/Label';
+import CreateTag from './pages/CreateTag';
+import Tag from './pages/Tag';
 
 function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact component={FormTag} />
-        <Route path="/label" component={Label} />
+        <Route path="/" exact component={CreateTag} />
+        <Route path="/tag" component={Tag} />
       </Switch>
     </BrowserRouter>
   );
