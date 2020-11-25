@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiSearch, FiTag } from 'react-icons/fi';
 
 import '../styles/global.css';
 import '../styles/pages/create-tag.css';
@@ -16,9 +17,16 @@ function CreateTag() {
               <input id="name" />
             </div>
 
-            <div className="input-block">
-              <label htmlFor="cep">CEP</label>
-              <input id="cep" />
+            <div className="input-block-cep">
+              <div className="input-block">
+                <label htmlFor="cep">CEP</label>
+                <input id="cep" />
+              </div>
+
+              <button className="cep-button">
+                Pesquisar &nbsp;
+                <FiSearch size={18} color="#ffffff" />
+                </button>
             </div>
 
             <div className="input-block">
@@ -34,12 +42,12 @@ function CreateTag() {
             <div className="input-block">
               <label htmlFor="complemento">Complemento</label>
               <input id="complemento" />
-            </div>  
+            </div>
 
             <div className="input-block">
               <label htmlFor="bairro">Bairro</label>
               <input id="bairro" />
-            </div>            
+            </div>
 
             <div className="input-block">
               <label htmlFor="cidade">Cidade</label>
@@ -52,7 +60,8 @@ function CreateTag() {
             </div>
 
             <button className="confirm-button" type="submit">
-              Confirmar
+              Confirmar &nbsp;
+              <FiTag size={18} color="#ffffff" />
             </button>
           </fieldset>
         </form>

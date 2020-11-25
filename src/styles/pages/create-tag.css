@@ -40,6 +40,13 @@ form.create-tag-form fieldset legend {
   padding-bottom: 16px;
 }
 
+form.create-tag-form .input-block-cep {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
 form.create-tag-form .input-block + .input-block {
   margin-top: 8px;
 }
@@ -69,17 +76,17 @@ form.create-tag-form .input-block input {
 
 form.create-tag-form .input-block input {
   height: 42px;
-  padding: 0 16px;
+  padding: 0 24px;
 }
 
-form.create-tag-form button.confirm-button {
-  margin-top: 36px;
+form.create-tag-form button.cep-button {
+  margin-top: auto;
+  width: 30%;
 
-  width: 100%;
-  height: 64px;
+  height: 42px;
   border: 0;
   cursor: pointer;
-  background: #3cdc8c;
+  background: #f8bce1;
   border-radius: 20px;
   color: #ffffff;
   font-weight: 800;
@@ -90,9 +97,30 @@ form.create-tag-form button.confirm-button {
 
   outline: none;
 
-  transition: background-color 0.2s;
+  transition: background-color 0.3s;
 }
 
-form.create-tag-form button.confirm-button:hover {
-  background: #36cf82;
+form.create-tag-form button.confirm-button {
+  margin-top: 36px;
+
+  width: 100%;
+  height: 64px;
+  border: 0;
+  cursor: pointer;
+  background: #f8bce1;
+  border-radius: 20px;
+  color: #ffffff;
+  font-weight: 800;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  outline: none;
+
+  transition: background-color 0.3s;
+}
+
+form.create-tag-form button:hover {
+  background: #e7acd0;
 }
