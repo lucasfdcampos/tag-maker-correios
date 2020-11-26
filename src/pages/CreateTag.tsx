@@ -11,6 +11,8 @@ function CreateTag() {
   const [neighborhood, setNeighborhood] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
+  const [number, setNumber] = useState('');
+  const [complement, setComplement] = useState('');
 
   useLayoutEffect(() => {
     document.getElementById('name')?.focus();
@@ -33,6 +35,8 @@ function CreateTag() {
           setNeighborhood('');
           setCity('');
           setState('');
+          setNumber('');
+          setComplement('');
 
           alert('Cep inexistente.');
           document.getElementById('cep')?.focus();
@@ -79,12 +83,20 @@ function CreateTag() {
 
             <div className="input-block">
               <label htmlFor="numero">Numero</label>
-              <input id="numero" />
+              <input
+                id="numero"
+                value={number}
+                onChange={(event) => setNumber(event.target.value)}
+              />
             </div>
 
             <div className="input-block">
               <label htmlFor="complemento">Complemento</label>
-              <input id="complemento" />
+              <input
+                id="complemento"
+                value={complement}
+                onChange={(event) => setComplement(event.target.value)}
+              />
             </div>
 
             <div className="input-block">

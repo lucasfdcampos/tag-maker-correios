@@ -86,7 +86,7 @@ form.create-tag-form button.cep-button {
   height: 42px;
   border: 0;
   cursor: pointer;
-  background: #f8bce1;
+  background: #f791d0;
   border-radius: 20px;
   color: #ffffff;
   font-weight: 800;
@@ -107,7 +107,7 @@ form.create-tag-form button.confirm-button {
   height: 64px;
   border: 0;
   cursor: pointer;
-  background: #f8bce1;
+  background: #f791d0;
   border-radius: 20px;
   color: #ffffff;
   font-weight: 800;
@@ -122,5 +122,5 @@ form.create-tag-form button.confirm-button {
 }
 
 form.create-tag-form button:hover {
-  background: #e7acd0;
+  background: #d87fb6;
 }
