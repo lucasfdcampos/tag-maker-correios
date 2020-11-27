@@ -1,4 +1,5 @@
 import React, { useState, useLayoutEffect, FormEvent } from 'react';
+import { useHistory } from 'react-router-dom';
 import { FiSearch, FiTag } from 'react-icons/fi';
 import axios from 'axios';
 
@@ -6,6 +7,9 @@ import '../styles/global.css';
 import '../styles/pages/create-tag.css';
 
 function CreateTag() {
+  const history = useHistory();
+
+  const [name, setName] = useState('');
   const [cep, setCep] = useState('');
   const [street, setStreet] = useState('');
   const [neighborhood, setNeighborhood] = useState('');
@@ -44,16 +48,22 @@ function CreateTag() {
     }
   }
 
+  function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+
+    history.push(`/tag/${name}/${cep}`);
+  }
+
   return (
     <div className="page-create-tag">
       <main>
-        <form className="create-tag-form">
+        <form onSubmit={handleSubmit}  className="create-tag-form">
           <fieldset>
             <legend>Dados</legend>
 
             <div className="input-block">
               <label htmlFor="name">Nome</label>
-              <input id="name" />
+              <input id="name" value={name} onChange={(event) => setName(event.target.value)} />
             </div>
 
             <div className="input-block-cep">
