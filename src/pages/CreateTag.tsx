@@ -2,6 +2,7 @@ import React, { useState, useLayoutEffect, FormEvent } from 'react';
 import { useHistory } from 'react-router-dom';
 import { FiSearch, FiTag } from 'react-icons/fi';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 import '../styles/global.css';
 import '../styles/pages/create-tag.css';
@@ -25,6 +26,16 @@ function CreateTag() {
   async function handleSearchCEP(event: FormEvent) {
     event.preventDefault();
 
+    if (cep.length <= 0) {
+      Swal.fire({
+        title: 'Erro!',
+        text: 'Informe o CEP.',
+        icon: 'error',
+        confirmButtonText: 'Ok',
+      });
+      document.getElementById('cep')?.focus();
+    }
+
     if (cep) {
       axios
         .get(`https://brasilapi.com.br/api/cep/v1/${cep}`)
@@ -32,10 +43,11 @@ function CreateTag() {
           setStreet(response.data.street);
           setNeighborhood(response.data.neighborhood);
           setCity(response.data.city);
-          setState(response.data.state); 
+          setState(response.data.state);
           if (complement.length <= 0) {
             setComplement('-');
-          }         
+          }
+          document.getElementById('numero')?.focus();
         })
         .catch((error) => {
           setStreet('');
@@ -45,28 +57,83 @@ function CreateTag() {
           setNumber('');
           setComplement('');
 
-          alert('Cep inexistente.');
+          Swal.fire({
+            title: 'Erro na pesquisa!',
+            text: 'CEP inexistente.',
+            icon: 'error',
+            confirmButtonText: 'Ok',
+          });
           document.getElementById('cep')?.focus();
         });
     }
   }
 
   function handleSubmit(event: FormEvent) {
-    event.preventDefault();    
-    
-    history.push(`/tag/${name}/${street}/${number}/${neighborhood}/${complement}/${cep}/${city}/${state}`);
+    event.preventDefault();
+
+    if (name.length <= 0) {
+      Swal.fire({
+        title: 'Erro!',
+        text: 'Nome em branco.',
+        icon: 'error',
+        confirmButtonText: 'Ok',
+      });
+      document.getElementById('name')?.focus();
+      return;
+    }
+
+    if (cep.length <= 0) {
+      Swal.fire({
+        title: 'Erro!',
+        text: 'Cep em branco.',
+        icon: 'error',
+        confirmButtonText: 'Ok',
+      });
+      document.getElementById('cep')?.focus();
+      return;
+    }
+
+    if (street.length <= 0) {
+      Swal.fire({
+        title: 'Erro!',
+        text: 'Rua em branco.',
+        icon: 'error',
+        confirmButtonText: 'Ok',
+      });
+      document.getElementById('street')?.focus();
+      return;
+    }
+
+    if (number.length <= 0) {
+      Swal.fire({
+        title: 'Erro!',
+        text: 'Número em branco.',
+        icon: 'error',
+        confirmButtonText: 'Ok',
+      });
+      document.getElementById('number')?.focus();
+      return;
+    }
+
+    history.push(
+      `/tag/${name}/${street}/${number}/${neighborhood}/${complement}/${cep}/${city}/${state}`
+    );
   }
 
   return (
     <div className="page-create-tag">
       <main>
-        <form onSubmit={handleSubmit}  className="create-tag-form">
+        <form onSubmit={handleSubmit} className="create-tag-form">
           <fieldset>
             <legend>Dados</legend>
 
             <div className="input-block">
               <label htmlFor="name">Nome</label>
-              <input id="name" value={name} onChange={(event) => setName(event.target.value)} />
+              <input
+                id="name"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+              />
             </div>
 
             <div className="input-block-cep">
@@ -88,7 +155,7 @@ function CreateTag() {
             <div className="input-block">
               <label htmlFor="rua">Rua</label>
               <input
-                id="rua"
+                id="street"
                 value={street}
                 onChange={(event) => setStreet(event.target.value)}
               />
@@ -97,7 +164,7 @@ function CreateTag() {
             <div className="input-block">
               <label htmlFor="numero">Numero</label>
               <input
-                id="numero"
+                id="number"
                 value={number}
                 onChange={(event) => setNumber(event.target.value)}
               />
@@ -106,7 +173,7 @@ function CreateTag() {
             <div className="input-block">
               <label htmlFor="complemento">Complemento</label>
               <input
-                id="complemento"
+                id="complement"
                 value={complement}
                 onChange={(event) => setComplement(event.target.value)}
               />
@@ -115,7 +182,7 @@ function CreateTag() {
             <div className="input-block">
               <label htmlFor="bairro">Bairro</label>
               <input
-                id="bairro"
+                id="neighborhood"
                 value={neighborhood}
                 onChange={(event) => setNeighborhood(event.target.value)}
               />
@@ -124,7 +191,7 @@ function CreateTag() {
             <div className="input-block">
               <label htmlFor="cidade">Cidade</label>
               <input
-                id="cidade"
+                id="city"
                 value={city}
                 onChange={(event) => setCity(event.target.value)}
               />
@@ -133,7 +200,7 @@ function CreateTag() {
             <div className="input-block">
               <label htmlFor="estado">Estado</label>
               <input
-                id="estado"
+                id="state"
                 value={state}
                 onChange={(event) => setState(event.target.value)}
               />

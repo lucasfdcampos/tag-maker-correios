@@ -23,12 +23,18 @@ div.tag {
   font-size: 16;
 }
 
+div.cut {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 42px;
+  margin-bottom: 24px;
+}
+
 hr {
   border: none;
   border-top: 2px dotted #000;
-  margin-top: 42px;
-  margin-bottom: 24px;
-  width: 100%;
+  width: 97%;
 }
 
 div.tag h3 + h3 {

@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { BiCut } from 'react-icons/bi';
 
+import '../styles/global.css';
 import '../styles/pages/tag.css';
 interface Label {
   name: string;
@@ -43,7 +45,9 @@ function Tag() {
             </h3>
           </fieldset>
 
-          <hr />
+          <div className="cut">
+            <BiCut /> <hr />
+          </div>
 
           <fieldset>
             <legend>Remetente</legend>
