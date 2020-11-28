@@ -9,7 +9,7 @@ function Routes() {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={CreateTag} />
-        <Route path="/tag/:name/:cep" component={Tag} />
+        <Route path="/tag/:name/:street/:number/:neighborhood/:complement/:cep/:city/:state" component={Tag} />
       </Switch>
     </BrowserRouter>
   );

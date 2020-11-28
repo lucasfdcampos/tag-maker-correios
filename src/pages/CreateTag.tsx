@@ -32,7 +32,10 @@ function CreateTag() {
           setStreet(response.data.street);
           setNeighborhood(response.data.neighborhood);
           setCity(response.data.city);
-          setState(response.data.state);
+          setState(response.data.state); 
+          if (complement.length <= 0) {
+            setComplement('-');
+          }         
         })
         .catch((error) => {
           setStreet('');
@@ -49,9 +52,9 @@ function CreateTag() {
   }
 
   function handleSubmit(event: FormEvent) {
-    event.preventDefault();
-
-    history.push(`/tag/${name}/${cep}`);
+    event.preventDefault();    
+    
+    history.push(`/tag/${name}/${street}/${number}/${neighborhood}/${complement}/${cep}/${city}/${state}`);
   }
 
   return (

@@ -1,0 +1,36 @@
+#page-tag {
+  display: flex;
+}
+
+#page-tag main {
+  flex: 1;
+}
+
+div.tag {
+  width: 600px;
+  margin: 64px auto;
+}
+
+#page-tag fieldset {
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  padding: 0 16px 16px;
+}
+
+#page-tag fieldset legend {
+  padding: 8px;
+  font-size: 16;
+}
+
+hr {
+  border: none;
+  border-top: 2px dotted #000;
+  margin-top: 42px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+div.tag h3 + h3 {
+  margin-top: 8px;
+}
