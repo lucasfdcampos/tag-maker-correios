@@ -22,8 +22,6 @@ function Tag() {
     document.title = params.name + ' - ' + params.city + '-' + params.state;
   });
 
-  console.log(params);
-
   return (
     <div id="page-tag">
       <main>
@@ -32,7 +30,7 @@ function Tag() {
             <legend>Destinatário</legend>
             <h3>{params.name}</h3>
             <h3>
-              Rua: {params.street} N. {params.number}
+              Rua: {params.street} Nº {params.number}
             </h3>
             {params.complement.length > 1 && (
               <h3>Complemento: {params.complement}</h3>
@@ -52,7 +50,7 @@ function Tag() {
           <fieldset>
             <legend>Remetente</legend>
             <h3>Aparecida de Fátima de Campos</h3>
-            <h3>Rua: Rouxinol N. 1850</h3>
+            <h3>Rua: Rouxinol Nº 1850</h3>
             <h3>Bairro: Vila Aparecida</h3>
             <h3>Cep: 86706-190</h3>
             <h3>Cidade: Arapongas - PR</h3>

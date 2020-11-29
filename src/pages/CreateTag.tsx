@@ -40,7 +40,26 @@ function CreateTag() {
       axios
         .get(`https://brasilapi.com.br/api/cep/v1/${cep}`)
         .then((response) => {
-          setStreet(response.data.street);
+
+          console.log(response.data.street);
+          /*
+          let newStreet = response.data.street;
+
+
+
+          if (newStreet.substring(0, 4).contains('Rua ')) {
+            //newStreet = response.data.street.replace('Rua ', '');
+            console.log(newStreet);
+          }
+          */
+          var newStreet = response.data.street;
+
+          if (response.data.street.includes('Rua ')) {
+            newStreet = response.data.street.replace('Rua ', '');
+            console.log(newStreet);
+          }
+
+          setStreet(newStreet);
           setNeighborhood(response.data.neighborhood);
           setCity(response.data.city);
           setState(response.data.state);
@@ -162,7 +181,7 @@ function CreateTag() {
             </div>
 
             <div className="input-block">
-              <label htmlFor="numero">Numero</label>
+              <label htmlFor="numero">Número</label>
               <input
                 id="number"
                 value={number}
